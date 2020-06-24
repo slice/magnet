@@ -66,11 +66,7 @@ struct Stopwatch: View {
         let minute = 60 * second
 
         func pad(_ n: Int) -> String {
-            if (n < 10) {
-                return "0\(n)"
-            } else {
-                return String(n)
-            }
+            return n < 10 ? "0\(n)" : String(n)
         }
 
         if centiseconds > minute {
