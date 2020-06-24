@@ -92,7 +92,7 @@ struct Stopwatch: View {
             .contentShape(Rectangle())
             .gesture(active ? eraseGesture(stopGesture) : eraseGesture(startGesture))
             .onReceive(timer) { input in
-                guard self.active == true else { return }
+                guard self.active else { return }
                 self.centiseconds += 1
             }
     }
