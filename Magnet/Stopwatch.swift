@@ -15,7 +15,10 @@ func eraseGesture<G: Gesture>(_ gesture: G) -> AnyGesture<()> {
     return AnyGesture(gesture.map { _ in () })
 }
 
+let stopwatchFontSize: CGFloat = 60.0
+
 struct Stopwatch: View {
+    @EnvironmentObject var settings: SettingsStore
     @GestureState var gestureState = StopwatchGestureState.inactive
     @Binding var active: Bool
     @Binding var centiseconds: Int
@@ -57,10 +60,6 @@ struct Stopwatch: View {
         }
     }
 
-    private var font: UIFont {
-        UIFont.monospacedDigitSystemFont(ofSize: 60.0, weight: .bold)
-    }
-
     private var formattedTime: String {
         let second = 100
         let minute = 60 * second
@@ -81,9 +80,18 @@ struct Stopwatch: View {
         }
     }
 
+    var timerFont: Font {
+        // Scale the font size according to Dynamic Type.
+        let size = UIFontMetrics.default.scaledValue(for: stopwatchFontSize)
+
+        return settings.timerMonospaceFont
+            ? Font.system(size: size, weight: .bold, design: .monospaced)
+            : Font.system(size: size, weight: .bold).monospacedDigit()
+    }
+
     var body: some View {
         Text(formattedTime)
-            .font(.init(font))
+            .font(timerFont)
             .padding()
             .background(gestureColor)
             .foregroundColor(gestureColor == .clear ? .primary : .white)

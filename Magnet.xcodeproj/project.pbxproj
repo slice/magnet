@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		124924A924AD23B900A32E3F /* MagnetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124924A824AD23B900A32E3F /* MagnetApp.swift */; };
+		124924F524AD458900A32E3F /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124924F424AD458900A32E3F /* SettingsStore.swift */; };
 		12864C7C24A2CBD000CA867D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12864C7B24A2CBD000CA867D /* ContentView.swift */; };
 		12864C7E24A2CBD600CA867D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12864C7D24A2CBD600CA867D /* Assets.xcassets */; };
 		12864C8124A2CBD600CA867D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12864C8024A2CBD600CA867D /* Preview Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		124924A824AD23B900A32E3F /* MagnetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnetApp.swift; sourceTree = "<group>"; };
+		124924F424AD458900A32E3F /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		12864C7424A2CBD000CA867D /* Magnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Magnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12864C7B24A2CBD000CA867D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		12864C7D24A2CBD600CA867D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		124924EF24AD3AFB00A32E3F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				124924F424AD458900A32E3F /* SettingsStore.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		12864C6B24A2CBCF00CA867D = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +83,7 @@
 		12864C7624A2CBD000CA867D /* Magnet */ = {
 			isa = PBXGroup;
 			children = (
+				124924EF24AD3AFB00A32E3F /* Models */,
 				124924A824AD23B900A32E3F /* MagnetApp.swift */,
 				124924AB24AD24B100A32E3F /* Assets */,
 				124924AA24AD24A700A32E3F /* Supporting Files */,
@@ -172,6 +183,7 @@
 			files = (
 				124924A924AD23B900A32E3F /* MagnetApp.swift in Sources */,
 				12864C7C24A2CBD000CA867D /* ContentView.swift in Sources */,
+				124924F524AD458900A32E3F /* SettingsStore.swift in Sources */,
 				12864C8D24A3308500CA867D /* Stopwatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

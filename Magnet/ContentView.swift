@@ -6,11 +6,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var settings: SettingsStore
+
     @State private var stopwatchActive = false
     @State private var stopwatchCentiseconds = 0
-
-    @State private var timerArmDelay = 75
-    @State private var useMonospaceFont = false
 
     var body: some View {
         TabView {
@@ -29,11 +28,14 @@ struct ContentView: View {
             NavigationView {
                 Form {
                     Section(header: Text("Timer")) {
-                        Stepper(value: $timerArmDelay, in: 0...1000, step: 25) {
-                            Text("Arm Delay: \(timerArmDelay)ms")
+                        Stepper(value: $settings.timerArmDelay, in: 0...1000, step: 25) {
+                            Text("Arm Delay: \(settings.timerArmDelay)ms")
                         }
-                        Toggle(isOn: $useMonospaceFont) {
+                        Toggle(isOn: $settings.timerMonospaceFont) {
                             Text("Monospace Font")
+                        }
+                        Toggle(isOn: $settings.timerHideTimeWhileActive) {
+                            Text("Hide Time While Active")
                         }
                     }
                 }
