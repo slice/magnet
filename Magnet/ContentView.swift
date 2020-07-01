@@ -18,7 +18,7 @@ struct ContentView: View {
         } set: { newValue in
             stopwatchActive = newValue
             if (!newValue) {
-                store.solves.append(Solve(solveTime: stopwatchCentiseconds, dnf: false, penalty: 0))
+                store.solves.append(Solve(time: stopwatchCentiseconds, dnf: false, penalty: 0))
             }
         }
 
@@ -31,7 +31,7 @@ struct ContentView: View {
 
             NavigationView {
                 List(store.solves) { solve in
-                    Text("\(solve.solveTime) centiseconds")
+                    Text("\(formatCentiseconds(solve.time))")
                 }
                 .navigationBarTitle("Session")
             }

@@ -9,7 +9,7 @@ struct Solve: Identifiable {
     var id = UUID()
 
     /// The solve duration in centiseconds.
-    var solveTime: Int
+    var time: Int
 
     /// Whether the solve was completed or not.
     var dnf: Bool
