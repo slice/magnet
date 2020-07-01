@@ -62,8 +62,10 @@ struct Stopwatch: View {
         }
     }
 
-    private var formattedTime: String {
-        formatCentiseconds(centiseconds)
+    private var displayedText: String {
+        return settings.timerHideTimeWhileActive && active
+            ? "Solving..."
+            : formatCentiseconds(centiseconds)
     }
 
     var timerFont: Font {
@@ -76,7 +78,7 @@ struct Stopwatch: View {
     }
 
     var body: some View {
-        Text(formattedTime)
+        Text(displayedText)
             .font(timerFont)
             .padding()
             .background(gestureColor)
