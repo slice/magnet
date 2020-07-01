@@ -40,8 +40,8 @@ class SettingsStore: ObservableObject {
     }
 
     /// The amount of time the user must keep holding down before they can release to
-    /// start the timer.
-    @UserDefault("timerArmDelay") var timerArmDelay = 75 {
+    /// start the timer in milliseconds.
+    @UserDefault("timerArmDelay") var timerArmDelay = 500 {
         willSet {
             objectWillChange.send()
         }

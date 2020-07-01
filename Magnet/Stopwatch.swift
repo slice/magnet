@@ -38,7 +38,9 @@ struct Stopwatch: View {
             self.active = true
         }
 
-        return LongPressGesture(minimumDuration: 0.75)
+        let minimumDuration = Double(settings.timerArmDelay) / 1000
+
+        return LongPressGesture(minimumDuration: minimumDuration)
             .sequenced(before: armed)
             .updating($gestureState) { value, state, transaction in
                 switch value {
