@@ -6,7 +6,7 @@
 import SwiftUI
 
 @main
-struct Magnet: App {
+struct MagnetApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		124924A924AD23B900A32E3F /* Magnet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124924A824AD23B900A32E3F /* Magnet.swift */; };
+		124924A924AD23B900A32E3F /* MagnetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124924A824AD23B900A32E3F /* MagnetApp.swift */; };
 		12864C7C24A2CBD000CA867D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12864C7B24A2CBD000CA867D /* ContentView.swift */; };
 		12864C7E24A2CBD600CA867D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12864C7D24A2CBD600CA867D /* Assets.xcassets */; };
 		12864C8124A2CBD600CA867D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12864C8024A2CBD600CA867D /* Preview Assets.xcassets */; };
@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		124924A824AD23B900A32E3F /* Magnet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magnet.swift; sourceTree = "<group>"; };
+		124924A824AD23B900A32E3F /* MagnetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnetApp.swift; sourceTree = "<group>"; };
 		12864C7424A2CBD000CA867D /* Magnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Magnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12864C7B24A2CBD000CA867D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		12864C7D24A2CBD600CA867D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,8 +61,8 @@
 				12864C7D24A2CBD600CA867D /* Assets.xcassets */,
 				12864C8224A2CBD600CA867D /* LaunchScreen.storyboard */,
 				12864C8524A2CBD600CA867D /* Info.plist */,
+				124924A824AD23B900A32E3F /* MagnetApp.swift */,
 				12864C7F24A2CBD600CA867D /* Preview Content */,
-				124924A824AD23B900A32E3F /* Magnet.swift */,
 			);
 			path = Magnet;
 			sourceTree = "<group>";
@@ -154,7 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				124924A924AD23B900A32E3F /* Magnet.swift in Sources */,
+				124924A924AD23B900A32E3F /* MagnetApp.swift in Sources */,
 				12864C7C24A2CBD000CA867D /* ContentView.swift in Sources */,
 				12864C8D24A3308500CA867D /* Stopwatch.swift in Sources */,
 			);
