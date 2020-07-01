@@ -6,24 +6,39 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var store: MagnetStore
     @EnvironmentObject var settings: SettingsStore
 
     @State private var stopwatchActive = false
     @State private var stopwatchCentiseconds = 0
 
     var body: some View {
-        TabView {
-            Stopwatch(active: $stopwatchActive, centiseconds: $stopwatchCentiseconds)
+        let activeBinding = Binding {
+            stopwatchActive
+        } set: { newValue in
+            stopwatchActive = newValue
+            if (!newValue) {
+                store.solves.append(Solve(solveTime: stopwatchCentiseconds, dnf: false, penalty: 0))
+            }
+        }
+
+        return TabView {
+            Stopwatch(active: activeBinding, centiseconds: $stopwatchCentiseconds)
                 .tabItem {
                     Image(systemName: "timer")
                     Text("Timer")
                 }
 
-            Text("Session")
-                .tabItem {
-                    Image(systemName: "list.number")
-                    Text("Session")
+            NavigationView {
+                List(store.solves) { solve in
+                    Text("\(solve.solveTime) centiseconds")
                 }
+                .navigationBarTitle("Session")
+            }
+            .tabItem {
+                Image(systemName: "list.number")
+                Text("Session")
+            }
 
             NavigationView {
                 Form {
@@ -51,9 +66,11 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            ContentView()
-            ContentView().environment(\.colorScheme, .dark)
+        let store = MagnetStore()
+
+        return Group {
+            ContentView(store: store)
+            ContentView(store: store).environment(\.colorScheme, .dark)
         }
     }
 }
