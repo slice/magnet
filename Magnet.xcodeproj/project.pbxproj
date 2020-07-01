@@ -37,6 +37,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		124924AA24AD24A700A32E3F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				12864C8224A2CBD600CA867D /* LaunchScreen.storyboard */,
+				12864C8524A2CBD600CA867D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		124924AB24AD24B100A32E3F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				12864C7D24A2CBD600CA867D /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		12864C6B24A2CBCF00CA867D = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +73,11 @@
 		12864C7624A2CBD000CA867D /* Magnet */ = {
 			isa = PBXGroup;
 			children = (
-				12864C8B24A32D3B00CA867D /* Views */,
-				12864C7B24A2CBD000CA867D /* ContentView.swift */,
-				12864C7D24A2CBD600CA867D /* Assets.xcassets */,
-				12864C8224A2CBD600CA867D /* LaunchScreen.storyboard */,
-				12864C8524A2CBD600CA867D /* Info.plist */,
 				124924A824AD23B900A32E3F /* MagnetApp.swift */,
+				124924AB24AD24B100A32E3F /* Assets */,
+				124924AA24AD24A700A32E3F /* Supporting Files */,
 				12864C7F24A2CBD600CA867D /* Preview Content */,
+				12864C8B24A32D3B00CA867D /* Views */,
 			);
 			path = Magnet;
 			sourceTree = "<group>";
@@ -78,6 +93,7 @@
 		12864C8B24A32D3B00CA867D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				12864C7B24A2CBD000CA867D /* ContentView.swift */,
 				12864C8C24A3308400CA867D /* Stopwatch.swift */,
 			);
 			name = Views;
