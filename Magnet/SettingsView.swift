@@ -12,13 +12,13 @@ struct SettingsView: View {
         Form {
             Section(header: Text("Timer")) {
                 Stepper(value: $settings.timerArmDelay, in: 0...1000, step: 25) {
-                    Text("Arm Delay: \(settings.timerArmDelay)ms")
+                    Text("Safety: \(settings.timerArmDelay)ms")
                 }
                 Toggle(isOn: $settings.timerMonospaceFont) {
-                    Text("Monospace Font")
+                    Text("Monospaced Font")
                 }
                 Toggle(isOn: $settings.timerHideTimeWhileActive) {
-                    Text("Hide Time While Active")
+                    Text("Hide Time While Running")
                 }
             }
         }
