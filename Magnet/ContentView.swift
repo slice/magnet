@@ -25,8 +25,7 @@ struct ContentView: View {
         return TabView {
             Stopwatch(active: activeBinding, centiseconds: $stopwatchCentiseconds)
                 .tabItem {
-                    Image(systemName: "timer")
-                    Text("Timer")
+                    Label("Timer", systemImage: "timer")
                 }
 
             NavigationView {
@@ -36,8 +35,7 @@ struct ContentView: View {
                 .navigationBarTitle("Session")
             }
             .tabItem {
-                Image(systemName: "list.number")
-                Text("Session")
+                Label("Session", systemImage: "list.number")
             }
 
             NavigationView {
@@ -57,8 +55,7 @@ struct ContentView: View {
                 .navigationBarTitle(Text("Settings"))
             }
             .tabItem {
-                Image(systemName: "gear")
-                Text("Settings")
+                Label("Settings", systemImage: "gear")
             }
         }
     }
