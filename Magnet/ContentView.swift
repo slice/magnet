@@ -64,10 +64,11 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let store = MagnetStore()
+        let settings = SettingsStore()
 
         return Group {
-            ContentView(store: store)
-            ContentView(store: store).environment(\.colorScheme, .dark)
+            ContentView(store: store).environmentObject(settings)
+            ContentView(store: store).environmentObject(settings).environment(\.colorScheme, .dark)
         }
     }
 }
