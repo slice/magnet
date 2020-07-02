@@ -38,7 +38,7 @@ struct ContentView: View {
             }
         }
         .onChange(of: timerActive) { nowActive in
-            // XXX: We should capture the previous value here to check if the
+            // BUG: We should capture the previous value here to check if the
             // timer was actually stopped, but for some reason it always ends up
             // being the same as the new value. (`!nowActive && wasActive`.)
             //
