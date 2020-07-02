@@ -96,11 +96,14 @@ struct Stopwatch: View {
 
 struct Stopwatch_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach([5, 65, 60 * 2], id: \.self) { seconds in
+        let settings = SettingsStore()
+
+        return ForEach([5, 65, 60 * 2], id: \.self) { seconds in
             Stopwatch(
                 active: Binding.constant(false),
                 centiseconds: Binding.constant(seconds * 100)
             )
+            .environmentObject(settings)
         }
     }
 }
