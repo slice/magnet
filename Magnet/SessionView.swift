@@ -9,21 +9,27 @@ struct SessionView: View {
     @ObservedObject var store: MagnetStore
 
     var body: some View {
-        List {
-            ForEach(store.solves) { solve in
-                Text(solve.description)
-                    .foregroundColor(solve.dnf ? .secondary : .primary)
-            }
-            .onDelete { indexSet in
-                store.solves.remove(atOffsets: indexSet)
-            }
-
+        Group {
             if (store.solves.isEmpty) {
-                Text("No solves yet...").foregroundColor(.secondary)
+                Text("No Solves Yet")
+                    .font(.title)
+                    .foregroundColor(.secondary)
+            } else {
+                List {
+                    ForEach(store.solves) { solve in
+                        Text(solve.description)
+                            .foregroundColor(solve.dnf ? .secondary : .primary)
+                    }
+                    .onDelete { indexSet in
+                        store.solves.remove(atOffsets: indexSet)
+                    }
+                }
+                .navigationBarItems(trailing: EditButton())
+                // BUG: For some reason, the edit button persists after deleting
+                // all solves. Maybe this is a bug in SwiftUI?
             }
         }
         .navigationBarTitle("Session")
-        .navigationBarItems(trailing: EditButton())
     }
 }
 
@@ -38,8 +44,14 @@ struct SessionView_Previews: PreviewProvider {
             Solve(time: 34 * second, penalty: 2),
         ]
 
-        return NavigationView {
-            SessionView(store: store)
+        return Group {
+            NavigationView {
+                SessionView(store: store)
+            }
+
+            NavigationView {
+                SessionView(store: MagnetStore())
+            }
         }
     }
 }
