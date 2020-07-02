@@ -74,7 +74,11 @@ struct TimerView: View {
         // Scale the font size according to Dynamic Type.
         let size = UIFontMetrics.default.scaledValue(for: timerFontSize)
 
-        return settings.timerMonospaceFont
+        // If the user wants to hide the timer while active and we're currently
+        // active, always show the "Solving..." in a sans-serif font.
+        let shouldUseSans = settings.timerHideTimeWhileActive && active
+
+        return settings.timerMonospaceFont && !shouldUseSans
             ? Font.system(size: size, weight: .bold, design: .monospaced)
             : Font.system(size: size, weight: .bold).monospacedDigit()
     }
