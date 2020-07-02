@@ -12,17 +12,8 @@ struct ContentView: View {
     @State private var timerCentiseconds = 0
 
     var body: some View {
-        let activeBinding = Binding {
-            timerActive
-        } set: { newValue in
-            timerActive = newValue
-            if (!newValue) {
-                store.solves.append(Solve(time: timerCentiseconds, dnf: false, penalty: 0))
-            }
-        }
-
-        return TabView {
-            TimerView(active: activeBinding, centiseconds: $timerCentiseconds)
+        TabView {
+            TimerView(active: $timerActive, centiseconds: $timerCentiseconds)
                 .tabItem {
                     Label("Timer", systemImage: "timer")
                 }
@@ -41,6 +32,17 @@ struct ContentView: View {
             .tabItem {
                 Label("Settings", systemImage: "gear")
             }
+        }
+        .onChange(of: timerActive) { nowActive in
+            // XXX: We should capture the previous value here to check if the
+            // timer was actually stopped, but for some reason it always ends up
+            // being the same as the new value. (`!nowActive && wasActive`.)
+            //
+            // Let's just check for a time of 0:00.00 instead.
+            guard !nowActive && timerCentiseconds != 0 else { return }
+
+            let solve = Solve(time: timerCentiseconds)
+            store.solves.append(solve)
         }
     }
 }
