@@ -7,7 +7,6 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var store: MagnetStore
-    @EnvironmentObject var settings: SettingsStore
 
     @State private var stopwatchActive = false
     @State private var stopwatchCentiseconds = 0
@@ -39,20 +38,8 @@ struct ContentView: View {
             }
 
             NavigationView {
-                Form {
-                    Section(header: Text("Timer")) {
-                        Stepper(value: $settings.timerArmDelay, in: 0...1000, step: 25) {
-                            Text("Arm Delay: \(settings.timerArmDelay)ms")
-                        }
-                        Toggle(isOn: $settings.timerMonospaceFont) {
-                            Text("Monospace Font")
-                        }
-                        Toggle(isOn: $settings.timerHideTimeWhileActive) {
-                            Text("Hide Time While Active")
-                        }
-                    }
-                }
-                .navigationBarTitle(Text("Settings"))
+                SettingsView()
+                    .navigationBarTitle(Text("Settings"))
             }
             .tabItem {
                 Label("Settings", systemImage: "gear")
