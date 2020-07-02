@@ -11,9 +11,20 @@ struct Solve: Identifiable {
     /// The solve duration in centiseconds.
     var time: Int
 
-    /// Whether the solve was completed or not.
-    var dnf: Bool
+    /// Indicates if the solve was a DNF (Did Not Finish).
+    var dnf: Bool = false
 
-    /// The penalty incurred in centiseconds.
-    var penalty: Int
+    /// The penalty incurred in centiseconds. Usually either 0 or 2.
+    var penalty: Int = 0
+}
+
+extension Solve: CustomStringConvertible {
+    var description: String {
+        if dnf {
+            return "DNF"
+        }
+
+        let formatted = formatCentiseconds(time)
+        return penalty == 0 ? formatted : "\(formatted) (+\(penalty))"
+    }
 }

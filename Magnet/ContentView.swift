@@ -28,10 +28,7 @@ struct ContentView: View {
                 }
 
             NavigationView {
-                List(store.solves) { solve in
-                    Text("\(formatCentiseconds(solve.time))")
-                }
-                .navigationBarTitle("Session")
+                SessionView(store: store)
             }
             .tabItem {
                 Label("Session", systemImage: "list.number")

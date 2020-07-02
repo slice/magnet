@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		122D2E7A24AD6FD900EBDFA4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D2E7924AD6FD900EBDFA4 /* SettingsView.swift */; };
+		122D2E7C24AD74A100EBDFA4 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D2E7B24AD74A100EBDFA4 /* SessionView.swift */; };
 		124924A924AD23B900A32E3F /* MagnetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124924A824AD23B900A32E3F /* MagnetApp.swift */; };
 		124924F124AD3B1900A32E3F /* MagnetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124924F024AD3B1900A32E3F /* MagnetStore.swift */; };
 		124924F324AD3B4600A32E3F /* Solve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124924F224AD3B4600A32E3F /* Solve.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		122D2E7924AD6FD900EBDFA4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		122D2E7B24AD74A100EBDFA4 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		124924A824AD23B900A32E3F /* MagnetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnetApp.swift; sourceTree = "<group>"; };
 		124924F024AD3B1900A32E3F /* MagnetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnetStore.swift; sourceTree = "<group>"; };
 		124924F224AD3B4600A32E3F /* Solve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solve.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				12864C7B24A2CBD000CA867D /* ContentView.swift */,
 				12864C8C24A3308400CA867D /* TimerView.swift */,
 				122D2E7924AD6FD900EBDFA4 /* SettingsView.swift */,
+				122D2E7B24AD74A100EBDFA4 /* SessionView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				12864C7C24A2CBD000CA867D /* ContentView.swift in Sources */,
 				124924F524AD458900A32E3F /* SettingsStore.swift in Sources */,
 				124924F724AD540E00A32E3F /* Formatting.swift in Sources */,
+				122D2E7C24AD74A100EBDFA4 /* SessionView.swift in Sources */,
 				12864C8D24A3308500CA867D /* TimerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
