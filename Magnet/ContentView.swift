@@ -8,21 +8,21 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var store: MagnetStore
 
-    @State private var stopwatchActive = false
-    @State private var stopwatchCentiseconds = 0
+    @State private var timerActive = false
+    @State private var timerCentiseconds = 0
 
     var body: some View {
         let activeBinding = Binding {
-            stopwatchActive
+            timerActive
         } set: { newValue in
-            stopwatchActive = newValue
+            timerActive = newValue
             if (!newValue) {
-                store.solves.append(Solve(time: stopwatchCentiseconds, dnf: false, penalty: 0))
+                store.solves.append(Solve(time: timerCentiseconds, dnf: false, penalty: 0))
             }
         }
 
         return TabView {
-            Stopwatch(active: activeBinding, centiseconds: $stopwatchCentiseconds)
+            TimerView(active: activeBinding, centiseconds: $timerCentiseconds)
                 .tabItem {
                     Label("Timer", systemImage: "timer")
                 }

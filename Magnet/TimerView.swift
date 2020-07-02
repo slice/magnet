@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-enum StopwatchGestureState: String {
+enum TimerGestureState: String {
     case inactive
     case waiting
     case ready
@@ -15,13 +15,15 @@ func eraseGesture<G: Gesture>(_ gesture: G) -> AnyGesture<()> {
     return AnyGesture(gesture.map { _ in () })
 }
 
-let stopwatchFontSize: CGFloat = 60.0
+let timerFontSize: CGFloat = 60.0
 
-struct Stopwatch: View {
+struct TimerView: View {
     @EnvironmentObject var settings: SettingsStore
-    @GestureState var gestureState = StopwatchGestureState.inactive
+    @GestureState var gestureState = TimerGestureState.inactive
     @Binding var active: Bool
     @Binding var centiseconds: Int
+
+    // Since we're counting centiseconds, only publish every centisecond.
     private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
 
     private var stopGesture: some Gesture {
@@ -68,9 +70,9 @@ struct Stopwatch: View {
             : formatCentiseconds(centiseconds)
     }
 
-    var timerFont: Font {
+    private var font: Font {
         // Scale the font size according to Dynamic Type.
-        let size = UIFontMetrics.default.scaledValue(for: stopwatchFontSize)
+        let size = UIFontMetrics.default.scaledValue(for: timerFontSize)
 
         return settings.timerMonospaceFont
             ? Font.system(size: size, weight: .bold, design: .monospaced)
@@ -79,7 +81,7 @@ struct Stopwatch: View {
 
     var body: some View {
         Text(displayedText)
-            .font(timerFont)
+            .font(font)
             .padding()
             .background(gestureColor)
             .foregroundColor(gestureColor == .clear ? .primary : .white)
@@ -94,12 +96,12 @@ struct Stopwatch: View {
     }
 }
 
-struct Stopwatch_Previews: PreviewProvider {
+struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
         let settings = SettingsStore()
 
         return ForEach([5, 65, 60 * 2], id: \.self) { seconds in
-            Stopwatch(
+            TimerView(
                 active: Binding.constant(false),
                 centiseconds: Binding.constant(seconds * 100)
             )
