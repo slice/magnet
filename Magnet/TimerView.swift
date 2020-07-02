@@ -18,6 +18,8 @@ func eraseGesture<G: Gesture>(_ gesture: G) -> AnyGesture<()> {
 let timerFontSize: CGFloat = 60.0
 
 struct TimerView: View {
+    var fillFrame: Bool = false
+
     @EnvironmentObject var settings: SettingsStore
     @GestureState var gestureState = TimerGestureState.inactive
     @Binding var active: Bool
@@ -90,7 +92,7 @@ struct TimerView: View {
             .background(gestureColor)
             .foregroundColor(gestureColor == .clear ? .primary : .white)
             .cornerRadius(5.0)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(maxWidth: fillFrame ? .infinity : nil, maxHeight: fillFrame ? .infinity : nil)
             .contentShape(Rectangle())
             .gesture(active ? eraseGesture(stopGesture) : eraseGesture(startGesture))
             .onReceive(timer) { input in
@@ -110,6 +112,7 @@ struct TimerView_Previews: PreviewProvider {
                 centiseconds: Binding.constant(seconds * 100)
             )
             .environmentObject(settings)
+            .previewLayout(.sizeThatFits)
         }
     }
 }
